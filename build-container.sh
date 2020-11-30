@@ -80,7 +80,7 @@ docker exec -it ${CONTAINER} env
 
 echo -e ""
 echo -e "Test Send Email"
-swaks --from ${SMTP_LOGIN} --to ${RECIPIENT_TEST} --server ${IP}:${PORT_LISTEN} --header "Subject: Test send email with docker" --body "Email sent with docker"
+swaks --from ${SMTP_LOGIN} --to ${RECIPIENT_TEST} --server ${IP}:25 --header "Subject: Test send email with docker" --body "Email sent with docker"
 
 echo -e ""
 echo -e "Container Logs"
