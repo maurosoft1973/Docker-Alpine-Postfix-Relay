@@ -24,7 +24,7 @@ fi
 SMTP_TLS_WRAPPERMODE=no
 SMTP_TLS_SECURITY_LEVEL=may
 
-if [ ${SMTP_PORT} == 465]; then
+if [ "${SMTP_PORT}" == "465" ]; then
 	SMTP_TLS_WRAPPERMODE=yes
 	SMTP_TLS_SECURITY_LEVEL=encrypt
 fi
