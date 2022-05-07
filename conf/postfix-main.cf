@@ -1,34 +1,49 @@
+smtpd_banner = ${DOLLAR}myhostname ESMTP (Alpine)
+biff = no
+
+# appending .domain is the MUA's job.
+append_dot_mydomain = no
+
+# Uncomment the next line to generate "delayed mail" warnings
+delay_warning_time = 1h
+
+compatibility_level = 3.6
+
+# general params
+myhostname = $HOSTNAME
+mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128 $ACCEPTED_NETWORKS
+relayhost = [$SMTP_RELAY_HOST]:$SMTP_RELAY_PORT
+mydestination = $HOSTNAME, localhost
+mailbox_size_limit = 0
+recipient_delimiter = +
+smtputf8_enable = no
+maillog_file = /dev/stdout
+debug_peer_list = $SMTP_DEBUG_PEER_LIST
+debug_peer_level = $SMTP_DEBUG_PEER_LEVEL
+
 # network bindings
 inet_interfaces = all
 inet_protocols = ipv4
 
-# general params
-compatibility_level = 2
-myhostname = $HOSTNAME
-mynetworks = 127.0.0.0/8 [::1]/128 $ACCEPTED_NETWORKS
-relayhost = [$SMTP_HOST]:$SMTP_PORT
-
-# smtp-out params
-smtp_sasl_auth_enable = yes
-smtp_sasl_password_maps = static:$SMTP_LOGIN:$SMTP_PASSWORD
-smtp_sasl_security_options = noanonymous
-smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
-smtp_tls_security_level = $TLS_VERIFY
-smtp_tls_session_cache_database = btree:${DOLLAR}{data_directory}/smtp_scache
-smtp_use_tls = $USE_TLS
-smtp_tls_wrappermode = $TLS_WRAPPERMODE
-
-# RCPT TO restrictions
+# restrictions
 smtpd_recipient_restrictions = check_recipient_access $RECIPIENT_RESTRICTIONS, reject
 
-# some tweaks
-biff = no
-delay_warning_time = 1h
-mailbox_size_limit = 0
-readme_directory = no
-recipient_delimiter = +
-smtputf8_enable = no
-maillog_file = /dev/stdout
+# header
+smtp_header_checks = regexp:/etc/postfix/header_check
 
-debug_peer_list = $SMTP_DEBUG
-debug_peer_level = $SMTP_DEBUG_VERBOSE
+# smtp
+smtp_sasl_auth_enable = yes
+smtp_sasl_password_maps = static:$SMTP_RELAY_LOGIN:$SMTP_RELAY_PASSWORD
+smtp_sasl_security_options = noanonymous
+smtp_use_tls = $SMTP_USE_TLS
+smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
+smtp_tls_security_level = $SMTP_TLS_SECURITY_LEVEL
+smtp_tls_session_cache_database = lmdb:${DOLLAR}{data_directory}/smtp_scache
+smtp_tls_wrappermode = $SMTP_TLS_WRAPPERMODE
+
+# smtpd
+smtpd_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
+smtpd_tls_cert_file = /etc/ssl/certs/$HOSTNAME.pem
+smtpd_tls_key_file = /etc/ssl/certs/$HOSTNAME.key
+smtpd_tls_security_level = $SMTPD_TLS_SECURITY_LEVEL
+smtpd_enforce_tls = no

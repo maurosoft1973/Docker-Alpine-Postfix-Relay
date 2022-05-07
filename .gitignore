@@ -1,2 +1,3 @@
 .vs/
-.env
+build-image-manual.sh
+.env.container
