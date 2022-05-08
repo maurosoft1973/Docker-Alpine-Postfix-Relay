@@ -4,12 +4,12 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/maurosoft1973/alpine-postfix-relay.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/maurosoft1973/alpine-postfix-relay/)
 [![Docker Stars](https://img.shields.io/docker/stars/maurosoft1973/alpine-postfix-relay.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/maurosoft1973/alpine-postfix-relay/)
 
-[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.15.0-green.svg?style=for-the-badge)](https://alpinelinux.org/)
+[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.15.4-green.svg?style=for-the-badge)](https://alpinelinux.org/)
 [![Postfix Relay Version](https://img.shields.io/docker/v/maurosoft1973/alpine-postfix-relay?sort=semver&style=for-the-badge)](https://www.postfix.net)
 
 This Docker image [(maurosoft1973/alpine-postfix-relay)](https://hub.docker.com/r/maurosoft1973/alpine-postfix-relay/) is based on the minimal [Alpine Linux](https://alpinelinux.org/) with [Postfix Version v3.6.6-r0](https://www.postfix.net).
 
-##### Alpine Version 3.15.0 (Released Nov 24 2021)
+##### Alpine Version 3.15.4 (Released Apr 04 2022)
 ##### Postfix Version 3.6.6-r0 (Released 2022-04-21 10:13:08)
 
 ----
@@ -44,26 +44,27 @@ Postfix attempts to be fast, easy to administer, and secure.
 * ```:test-ppc64le```   test 64 bit PowerPC
 * ```:test-x86```       test 32 bit Intel/AMD
 * ```:test-x86_64```    test 64 bit Intel/AMD
-* ```:3.15.0``` 3.15.0 branch based (Automatic Architecture Selection)
-* ```:3.15.0-aarch64```   3.15.0 64 bit ARM
-* ```:3.15.0-armhf```     3.15.0 32 bit ARM v6
-* ```:3.15.0-armv7```     3.15.0 32 bit ARM v7
-* ```:3.15.0-ppc64le```   3.15.0 64 bit PowerPC
-* ```:3.15.0-x86```       3.15.0 32 bit Intel/AMD
-* ```:3.15.0-x86_64```    3.15.0 64 bit Intel/AMD
-* ```:3.15.0-3.6.6-r0``` 3.15.0-3.6.6-r0 branch based (Automatic Architecture Selection)
-* ```:3.15.0-3.6.6-r0-aarch64```   3.15.0 64 bit ARM
-* ```:3.15.0-3.6.6-r0-armhf```     3.15.0 32 bit ARM v6
-* ```:3.15.0-3.6.6-r0-armv7```     3.15.0 32 bit ARM v7
-* ```:3.15.0-3.6.6-r0-ppc64le```   3.15.0 64 bit PowerPC
-* ```:3.15.0-3.6.6-r0-x86```       3.15.0 32 bit Intel/AMD
-* ```:3.15.0-3.6.6-r0-x86_64```    3.15.0 64 bit Intel/AMD
+* ```:3.15.4``` 3.15.4 branch based (Automatic Architecture Selection)
+* ```:3.15.4-aarch64```   3.15.4 64 bit ARM
+* ```:3.15.4-armhf```     3.15.4 32 bit ARM v6
+* ```:3.15.4-armv7```     3.15.4 32 bit ARM v7
+* ```:3.15.4-ppc64le```   3.15.4 64 bit PowerPC
+* ```:3.15.4-x86```       3.15.4 32 bit Intel/AMD
+* ```:3.15.4-x86_64```    3.15.4 64 bit Intel/AMD
+* ```:3.15.4-3.6.6-r0``` 3.15.4-3.6.6-r0 branch based (Automatic Architecture Selection)
+* ```:3.15.4-3.6.6-r0-aarch64```   3.15.4 64 bit ARM
+* ```:3.15.4-3.6.6-r0-armhf```     3.15.4 32 bit ARM v6
+* ```:3.15.4-3.6.6-r0-armv7```     3.15.4 32 bit ARM v7
+* ```:3.15.4-3.6.6-r0-ppc64le```   3.15.4 64 bit PowerPC
+* ```:3.15.4-3.6.6-r0-x86```       3.15.4 32 bit Intel/AMD
+* ```:3.15.4-3.6.6-r0-x86_64```    3.15.4 64 bit Intel/AMD
 
 ## Layers & Sizes
 
-| Version                                                                               | Size                                                                                                                 |
-|---------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| Version                                                                               | Size                                                                                                                               |
+|---------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | ![Version](https://img.shields.io/badge/version-amd64-blue.svg?style=for-the-badge)   | ![MicroBadger Size (tag)](https://img.shields.io/docker/image-size/maurosoft1973/alpine-postfix-relay/latest?style=for-the-badge)  |
+| ![Version](https://img.shields.io/badge/version-aarch64-blue.svg?style=for-the-badge) | ![MicroBadger Size (tag)](https://img.shields.io/docker/image-size/maurosoft1973/alpine-postfix-relay/aarch64?style=for-the-badge) |
 | ![Version](https://img.shields.io/badge/version-armv6-blue.svg?style=for-the-badge)   | ![MicroBadger Size (tag)](https://img.shields.io/docker/image-size/maurosoft1973/alpine-postfix-relay/armhf?style=for-the-badge)   |
 | ![Version](https://img.shields.io/badge/version-armv7-blue.svg?style=for-the-badge)   | ![MicroBadger Size (tag)](https://img.shields.io/docker/image-size/maurosoft1973/alpine-postfix-relay/armv7?style=for-the-badge)   |
 | ![Version](https://img.shields.io/badge/version-ppc64le-blue.svg?style=for-the-badge) | ![MicroBadger Size (tag)](https://img.shields.io/docker/image-size/maurosoft1973/alpine-postfix-relay/ppc64le?style=for-the-badge) |
@@ -140,4 +141,48 @@ docker run -d -p 0.0.0.0:25:25 -p 0.0.0.0:587:587 \
 ```
 
 ***
-###### Last Update 08.05.2022 09:39:26
+
+### 4. Run a service inside GitLab Pipeline Job.Use account gmail,without 2FA enabled.
+
+This job use the image maurosoft1973/alpine-postfix-relay for load as service and send email. 
+
+For use, replace the value:
+- recipientname
+- recipientaddress
+- sendername
+- youremail
+- yourpassword
+with the your values
+
+Note: i use the sleep function, inside the job, for have time to process the postfix queue, otherwise the e-mail is not sent because the process is stopped.
+
+```pipeline
+postfix-relay-service:
+    stage: test
+    image: maurosoft1973/alpine
+    services:
+        - name: maurosoft1973/alpine-postfix-relay
+          alias: smtp
+    variables:
+        SMTP_RECIPIENT_NAME: "recipientname"
+        SMTP_RECIPIENT: "recipientaddress"
+        SMTP_SENDER_NAME: "sendername"
+        SMTP_RELAY_HOST: "smtp.gmail.com"
+        SMTP_RELAY_PORT: "465"
+        SMTP_RELAY_LOGIN: "youremail"
+        SMTP_RELAY_PASSWORD: "yourpassword"
+    script:
+        - apk add curl
+        - |
+          echo "From: $SMTP_SENDER_NAME <$SMTP_RELAY_LOGIN>" >> mail.txt
+          echo "To: $SMTP_RECIPIENT_NAME <${SMTP_RECIPIENT}>" >> mail.txt
+          echo "Subject: Test Message - CURL" >> mail.txt
+          echo "" >>  mail.txt
+          echo "Dear $SMTP_RECIPIENT_NAME," >>  mail.txt
+          echo "Test message from GitLab Pipeline" >>  mail.txt
+        - curl smtp://smtp -v --mail-from "$SMTP_RELAY_LOGIN" --mail-rcpt "$SMTP_RECIPIENT" -T "mail.txt"
+        - sleep 15s
+```
+
+***
+###### Last Update 08.05.2022 09:46:31
