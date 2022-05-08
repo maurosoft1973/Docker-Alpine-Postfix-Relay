@@ -40,9 +40,6 @@ build-test:
         - master
     variables:
         RELEASE: "TEST"
-    except:
-        changes:
-            - "*.tpl"
     script:
         - bash ./build-image.sh -di=$JOB_DOCKER_IMAGE -aa=aarch64 -av=$JOB_ALPINE_VERSION -ad="$JOB_ALPINE_VERSION_DATE" -ar=$JOB_ALPINE_RELEASE -pv=$JOB_POSTFIX_VERSION -pd=$JOB_POSTFIX_VERSION_DATE -r=$RELEASE
         - bash ./build-image.sh -di=$JOB_DOCKER_IMAGE -aa=armhf -av=$JOB_ALPINE_VERSION -ad="$JOB_ALPINE_VERSION_DATE" -ar=$JOB_ALPINE_RELEASE -pv=$JOB_POSTFIX_VERSION -pd=$JOB_POSTFIX_VERSION_DATE -r=$RELEASE
@@ -57,9 +54,6 @@ build-current:
         - master
     variables:
         RELEASE: "CURRENT"
-    except:
-        changes:
-            - "*.tpl"
     script:
         - bash ./build-image.sh -di=$JOB_DOCKER_IMAGE -aa=aarch64 -av=$JOB_ALPINE_VERSION -ad="$JOB_ALPINE_VERSION_DATE" -ar=$JOB_ALPINE_RELEASE -pv=$JOB_POSTFIX_VERSION -pd=$JOB_POSTFIX_VERSION_DATE -r=$RELEASE
         - bash ./build-image.sh -di=$JOB_DOCKER_IMAGE -aa=armhf -av=$JOB_ALPINE_VERSION -ad="$JOB_ALPINE_VERSION_DATE" -ar=$JOB_ALPINE_RELEASE -pv=$JOB_POSTFIX_VERSION -pd=$JOB_POSTFIX_VERSION_DATE -r=$RELEASE
@@ -88,9 +82,6 @@ push-test:
         - master
     variables:
         RELEASE: "TEST"
-    except:
-        changes:
-            - "*.tpl"
     needs:
         - build-test
     script:
@@ -108,9 +99,6 @@ push-current:
         - master
     variables:
         RELEASE: "CURRENT"
-    except:
-        changes:
-            - "*.tpl"
     needs:
         - build-current
     script:
