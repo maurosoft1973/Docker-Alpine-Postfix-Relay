@@ -61,9 +61,10 @@ Postfix attempts to be fast, easy to administer, and secure.
 
 ## Layers & Sizes
 
-| Version                                                                               | Size                                                                                                                 |
-|---------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| Version                                                                               | Size                                                                                                                               |
+|---------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | ![Version](https://img.shields.io/badge/version-amd64-blue.svg?style=for-the-badge)   | ![MicroBadger Size (tag)](https://img.shields.io/docker/image-size/maurosoft1973/alpine-postfix-relay/latest?style=for-the-badge)  |
+| ![Version](https://img.shields.io/badge/version-aarch64-blue.svg?style=for-the-badge) | ![MicroBadger Size (tag)](https://img.shields.io/docker/image-size/maurosoft1973/alpine-postfix-relay/aarch64?style=for-the-badge) |
 | ![Version](https://img.shields.io/badge/version-armv6-blue.svg?style=for-the-badge)   | ![MicroBadger Size (tag)](https://img.shields.io/docker/image-size/maurosoft1973/alpine-postfix-relay/armhf?style=for-the-badge)   |
 | ![Version](https://img.shields.io/badge/version-armv7-blue.svg?style=for-the-badge)   | ![MicroBadger Size (tag)](https://img.shields.io/docker/image-size/maurosoft1973/alpine-postfix-relay/armv7?style=for-the-badge)   |
 | ![Version](https://img.shields.io/badge/version-ppc64le-blue.svg?style=for-the-badge) | ![MicroBadger Size (tag)](https://img.shields.io/docker/image-size/maurosoft1973/alpine-postfix-relay/ppc64le?style=for-the-badge) |
@@ -137,6 +138,50 @@ docker run -d -p 0.0.0.0:25:25 -p 0.0.0.0:587:587 \
        -e SMTP_RELAY_LOGIN=${SMTP_GMAIL_LOGIN} \
        -e SMTP_RELAY_PASSWORD=${SMTP_GMAIL_PASSWORD} \
        maurosoft1973/alpine-postfix-relay
+```
+
+***
+
+### 4. Run a service inside GitLab Pipeline Job.Use account gmail,without 2FA enabled.
+
+This job use the image maurosoft1973/alpine-postfix-relay for load as service and send email. 
+
+For use, replace the value:
+- recipientname
+- recipientaddress
+- sendername
+- youremail
+- yourpassword
+with the your values
+
+Note: i use the sleep function, inside the job, for have time to process the postfix queue, otherwise the e-mail is not sent because the process is stopped.
+
+```pipeline
+postfix-relay-service:
+    stage: test
+    image: maurosoft1973/alpine
+    services:
+        - name: maurosoft1973/alpine-postfix-relay
+          alias: smtp
+    variables:
+        SMTP_RECIPIENT_NAME: "recipientname"
+        SMTP_RECIPIENT: "recipientaddress"
+        SMTP_SENDER_NAME: "sendername"
+        SMTP_RELAY_HOST: "smtp.gmail.com"
+        SMTP_RELAY_PORT: "465"
+        SMTP_RELAY_LOGIN: "youremail"
+        SMTP_RELAY_PASSWORD: "yourpassword"
+    script:
+        - apk add curl
+        - |
+          echo "From: $SMTP_SENDER_NAME <$SMTP_RELAY_LOGIN>" >> mail.txt
+          echo "To: $SMTP_RECIPIENT_NAME <${SMTP_RECIPIENT}>" >> mail.txt
+          echo "Subject: Test Message - CURL" >> mail.txt
+          echo "" >>  mail.txt
+          echo "Dear $SMTP_RECIPIENT_NAME," >>  mail.txt
+          echo "Test message from GitLab Pipeline" >>  mail.txt
+        - curl smtp://smtp -v --mail-from "$SMTP_RELAY_LOGIN" --mail-rcpt "$SMTP_RECIPIENT" -T "mail.txt"
+        - sleep 15s
 ```
 
 ***
