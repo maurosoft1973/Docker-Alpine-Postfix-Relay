@@ -17,6 +17,10 @@ export DEBUG=${DEBUG:-"0"}
 
 source /scripts/init-alpine.sh
 
+if [ "$DEBUG" == 1 ]; then
+    export
+fi
+
 # generate cerficate
 openssl req -newkey rsa:4096 -x509 -sha256 -days 3650 -nodes -out "/etc/ssl/certs/$HOSTNAME.pem" -keyout "/etc/ssl/certs/$HOSTNAME.key" -subj "/CN=$HOSTNAME"
 
@@ -54,8 +58,6 @@ envsubst < /root/conf/postfix-master.cf > /etc/postfix/master.cf
 envsubst < /root/conf/header_check > /etc/postfix/header_check
 
 if [ "$DEBUG" == 1 ]; then
-    export
-
     echo "Display content of /etc/postfix/main"
     cat /etc/postfix/main.cf
 
