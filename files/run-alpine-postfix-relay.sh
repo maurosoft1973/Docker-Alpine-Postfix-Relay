@@ -13,6 +13,7 @@ export SMTP_TLS_WRAPPERMODE=no
 export SMTPD_TLS_SECURITY_LEVEL=${SMTPD_TLS_SECURITY_LEVEL:-"none"}
 export SMTP_DEBUG_PEER_LIST=${SMTP_DEBUG_PEER_LIST:-"0.0.0.0"}
 export SMTP_DEBUG_PEER_LEVEL=${SMTP_DEBUG_PEER_LEVEL:-"3"}
+export DEBUG=${DEBUG:-"0"}
 
 source /scripts/init-alpine.sh
 
@@ -51,6 +52,19 @@ export DOLLAR='$'
 envsubst < /root/conf/postfix-main.cf > /etc/postfix/main.cf
 envsubst < /root/conf/postfix-master.cf > /etc/postfix/master.cf
 envsubst < /root/conf/header_check > /etc/postfix/header_check
+
+if [ "$DEBUG" == 1 ]; then
+    export
+
+    echo "Display content of /etc/postfix/main"
+    cat /etc/postfix/main.cf
+
+    echo "Display content of /etc/postfix/master"
+    cat /etc/postfix/master.cf
+
+    echo "Display content of /etc/postfix/header_check"
+    cat /etc/postfix/header_check
+fi
 
 # Generate default alias DB
 newaliases
