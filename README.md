@@ -97,7 +97,7 @@ This image creates containers that allow you to send e-mails via your e-mail add
 ### 1. Create a container with account gmail,without 2FA enabled, and it's listen on all network interfaces and port 25
 ```sh
 SMTP_GMAIL_LOGIN=youremail
-SMTP_GMAIL_PASSORD=yourpassword
+SMTP_GMAIL_PASSWORD=yourpassword
 
 docker run -d -p 0.0.0.0:25:25 \
        --name alpine-postfix-relay-to-gmail \
@@ -111,7 +111,7 @@ docker run -d -p 0.0.0.0:25:25 \
 ### 2. Create a container with account gmail,without 2FA enabled, and it's listen on all network interfaces and port 25 and 587
 ```sh
 SMTP_GMAIL_LOGIN=youremail
-SMTP_GMAIL_PASSORD=yourpassword
+SMTP_GMAIL_PASSWORD=yourpassword
 
 docker run -d -p 0.0.0.0:25:25 -p 0.0.0.0:587:587 \
        --name alpine-postfix-relay-to-gmail \
@@ -125,11 +125,11 @@ docker run -d -p 0.0.0.0:25:25 -p 0.0.0.0:587:587 \
 ### 3. Create a container with account gmail,with 2FA enabled, and it's listen on all network interfaces and port 25 and 587
 First, you create an account [Google apppasswords](https://myaccount.google.com/apppasswords) for allow send email. The password is automatically generated
 
-Please copy the password and paste into SMTP_GMAIL_PASSORD
+Please copy the password and paste into SMTP_GMAIL_PASSWORD
 
 ```sh
 SMTP_GMAIL_LOGIN=youremail
-SMTP_GMAIL_PASSORD=automaticpasswordgenerated
+SMTP_GMAIL_PASSWORD=automaticpasswordgenerated
 
 docker run -d -p 0.0.0.0:25:25 -p 0.0.0.0:587:587 \
        --name alpine-postfix-relay-to-gmail \
@@ -185,4 +185,4 @@ postfix-relay-service:
 ```
 
 ***
-###### Last Update 08.05.2022 09:46:31
+###### Last Update 18.05.2022 05:51:05
