@@ -4,12 +4,12 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/maurosoft1973/alpine-postfix-relay.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/maurosoft1973/alpine-postfix-relay/)
 [![Docker Stars](https://img.shields.io/docker/stars/maurosoft1973/alpine-postfix-relay.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/maurosoft1973/alpine-postfix-relay/)
 
-[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.16.1-green.svg?style=for-the-badge)](https://alpinelinux.org/)
+[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.16.2-green.svg?style=for-the-badge)](https://alpinelinux.org/)
 [![Postfix Relay Version](https://img.shields.io/docker/v/maurosoft1973/alpine-postfix-relay?sort=semver&style=for-the-badge)](https://www.postfix.net)
 
 This Docker image [(maurosoft1973/alpine-postfix-relay)](https://hub.docker.com/r/maurosoft1973/alpine-postfix-relay/) is based on the minimal [Alpine Linux](https://alpinelinux.org/) with [Postfix Version v3.7.2-r0](https://www.postfix.net).
 
-##### Alpine Version 3.16.1 (Released Jul 18 2022)
+##### Alpine Version 3.16.2 (Released Aug 09 2022)
 ##### Postfix Version 3.7.2-r0 (Released 2022-04-28 09:57:16)
 
 ----
@@ -44,20 +44,20 @@ Postfix attempts to be fast, easy to administer, and secure.
 * ```:test-ppc64le```   test 64 bit PowerPC
 * ```:test-x86```       test 32 bit Intel/AMD
 * ```:test-x86_64```    test 64 bit Intel/AMD
-* ```:3.16.1``` 3.16.1 branch based (Automatic Architecture Selection)
-* ```:3.16.1-aarch64```   3.16.1 64 bit ARM
-* ```:3.16.1-armhf```     3.16.1 32 bit ARM v6
-* ```:3.16.1-armv7```     3.16.1 32 bit ARM v7
-* ```:3.16.1-ppc64le```   3.16.1 64 bit PowerPC
-* ```:3.16.1-x86```       3.16.1 32 bit Intel/AMD
-* ```:3.16.1-x86_64```    3.16.1 64 bit Intel/AMD
-* ```:3.16.1-3.7.2-r0``` 3.16.1-3.7.2-r0 branch based (Automatic Architecture Selection)
-* ```:3.16.1-3.7.2-r0-aarch64```   3.16.1 64 bit ARM
-* ```:3.16.1-3.7.2-r0-armhf```     3.16.1 32 bit ARM v6
-* ```:3.16.1-3.7.2-r0-armv7```     3.16.1 32 bit ARM v7
-* ```:3.16.1-3.7.2-r0-ppc64le```   3.16.1 64 bit PowerPC
-* ```:3.16.1-3.7.2-r0-x86```       3.16.1 32 bit Intel/AMD
-* ```:3.16.1-3.7.2-r0-x86_64```    3.16.1 64 bit Intel/AMD
+* ```:3.16.2``` 3.16.2 branch based (Automatic Architecture Selection)
+* ```:3.16.2-aarch64```   3.16.2 64 bit ARM
+* ```:3.16.2-armhf```     3.16.2 32 bit ARM v6
+* ```:3.16.2-armv7```     3.16.2 32 bit ARM v7
+* ```:3.16.2-ppc64le```   3.16.2 64 bit PowerPC
+* ```:3.16.2-x86```       3.16.2 32 bit Intel/AMD
+* ```:3.16.2-x86_64```    3.16.2 64 bit Intel/AMD
+* ```:3.16.2-3.7.2-r0``` 3.16.2-3.7.2-r0 branch based (Automatic Architecture Selection)
+* ```:3.16.2-3.7.2-r0-aarch64```   3.16.2 64 bit ARM
+* ```:3.16.2-3.7.2-r0-armhf```     3.16.2 32 bit ARM v6
+* ```:3.16.2-3.7.2-r0-armv7```     3.16.2 32 bit ARM v7
+* ```:3.16.2-3.7.2-r0-ppc64le```   3.16.2 64 bit PowerPC
+* ```:3.16.2-3.7.2-r0-x86```       3.16.2 32 bit Intel/AMD
+* ```:3.16.2-3.7.2-r0-x86_64```    3.16.2 64 bit Intel/AMD
 
 ## Layers & Sizes
 
@@ -185,4 +185,4 @@ postfix-relay-service:
 ```
 
 ***
-###### Last Update 18.07.2022 19:13:36
+###### Last Update 09.08.2022 21:07:06
